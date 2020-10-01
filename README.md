@@ -6,21 +6,21 @@
 ![logo](https://github.com/Leviathan36/SKA/blob/master/IMAGES/logo.png)
 
 ## About
-SKA allows you to implement a very simple and fast karma attack. You can sniff probe requests to choose the fake AP name or, if you want, you can insert the name of the AP manually (evil twin attack). When target is connected to your WLAN you can active the HTTP redirection and perform a MITM attack.
+SKA is a tool that allows you to implement a very simple and extremely fast karma attack. You can sniff the probe requests to choose the fake AP name or, if you want, you can insert the name of the AP manually (evil twin attack). As soon as the target gets connected to your WLAN you can activate the HTTP redirection and successfully perform a MITM attack.
 
 ## Details
-The script implements these steps:
+The script implements these simple steps:
 
-1. selection of NICs for the attack (one for LAN and one for WAN)
-2. capture of probe-requests to choice the fake AP name (***tcpdump***)
-3. activation of fake AP (***hostapd*** and ***dnsmasq***)
+1. Selection of NICs (Network Interface Cards) for the attack (one for LAN and another for WAN)
+2. Capturing the probe-requests to choose the fake AP name (***tcpdump***)
+3. Activation of the fake AP (***hostapd*** and ***dnsmasq***)
     
     * the new AP has a DHCP server which provides a valide IP to the target and prevents possible alerts on the victim devices
-4. activation of HTTP redirection (***iptables***)
+4. Activation of the HTTP redirection (***iptables***)
 
     * only HTTP requests are redirect to fake site, while the HTTPS traffic continues to route normally
-6. activation of ***Apache*** server for hosting the phising site
-7. at the end of the attack the script cleans all changes and restores Apache configuration
+6. Activation of ***Apache*** server for hosting the phishing site
+7. In the end, the script cleans all the changes and restores Apache configuration after the attack.
 
 
 ## Screenshots
@@ -33,15 +33,15 @@ Press CTRL-C to kill all processes and restore the configuration files.
 
 
 ## FAQ
-SKA alerts you if there are some problems with NetworkManager demon or Apache configuration file. Anyway you could find the answers to your problems in the links below:
+SKA alerts you if you're engaged with some problems with the NetworkManager daemon or Apache configuration file, you could find the answers to your problems in the links given below:
 
-1. [resolve Network Manager conflict 1](https://rootsh3ll.com/evil-twin-attack/)
+1. [Resolve Network Manager conflict-1](https://rootsh3ll.com/evil-twin-attack/)
 
     section: "Resolve airmon-ng and Network Manager Conflict"
 
-2. [resolve Network Manager conflict 2](https://github.com/sensepost/mana/issues/13)
+2. [Resolve Network Manager conflict-2](https://github.com/sensepost/mana/issues/13)
 
-3. [disable dnsmasq](https://unix.stackexchange.com/questions/257274/how-to-disable-dnsmasq)
+3. [Disable dnsmasq](https://unix.stackexchange.com/questions/257274/how-to-disable-dnsmasq)
 
 #### In summary
 1. Disable DNS line in your NetworkManager configuration file (look into /etc/NetworkManager/):
